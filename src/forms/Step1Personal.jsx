@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useFormContext } from "../state/FormContext";
+import { checkEmailAvailability } from "../services/api";
+import { useState } from "react";
+
 import InputField from "../components/InputField";
 import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
@@ -8,6 +11,7 @@ import ProgressBar from "../components/ProgressBar";
 export default function Step1Personal() {
   const navigate = useNavigate();
   const { state, updateField, nextStep } = useFormContext();
+  const [emailStatus, setEmailStatus] = useState("idle");
 
   const {
     register,
@@ -37,9 +41,7 @@ export default function Step1Personal() {
 
       <div className="form-header">
         <h2>Personal Information</h2>
-        <p className="muted-text">
-          Tell us a little about yourself.
-        </p>
+        <p className="muted-text">Tell us a little about yourself.</p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -89,13 +91,35 @@ export default function Step1Personal() {
               value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
               message: "Enter a valid email address",
             },
+            validate: async (value) => {
+              setEmailStatus("loading");
+
+              try {
+                await checkEmailAvailability(value);
+                setEmailStatus("success");
+                return true;
+              } catch (err) {
+                setEmailStatus("error");
+                return err.message || "Email not available";
+              }
+            },
           })}
           error={errors.email?.message}
         />
 
+        {emailStatus === "loading" && (
+          <p className="async-info">Checking email availability…</p>
+        )}
+
+        {emailStatus === "success" && (
+          <p className="async-success">Email is available ✓</p>
+        )}
+
         <div className="form-actions">
-          <span /> {/* empty placeholder for alignment */}
-          <Button type="submit">Next</Button>
+          <span />
+          <Button type="submit" disabled={emailStatus === "loading"}>
+            Next
+          </Button>
         </div>
       </form>
     </div>
