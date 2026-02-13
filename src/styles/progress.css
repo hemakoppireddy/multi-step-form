@@ -1,0 +1,49 @@
+.progress-container {
+  width: 140%;
+  margin-bottom: 2.2rem;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.stepper-item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* Step circle */
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.step-circle.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Connecting line */
+.step-line {
+  flex: 1;
+  height: 3px;
+  background: #e5e7eb;
+  /* margin: 0 12px; */
+  border-radius: 2px;
+}
+
+.step-line.active {
+  background: var(--primary);
+}

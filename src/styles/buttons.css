@@ -1,0 +1,34 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn.secondary:hover {
+  background: #d1d5db;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

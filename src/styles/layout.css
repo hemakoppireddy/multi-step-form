@@ -1,0 +1,40 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem;
+}
+
+/* HOME PAGE */
+
+.home-card {
+  text-align: center;
+  padding: 3.5rem 3rem;
+}
+
+.home-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.home-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 420px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.home-btn {
+  padding: 0.8rem 2rem;
+}

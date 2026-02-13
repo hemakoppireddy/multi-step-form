@@ -1,0 +1,95 @@
+.form-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* SUCCESS PAGE */
+
+/* =========================
+   SUCCESS / CONFIRMATION
+========================= */
+
+.success-card {
+  text-align: center;
+  padding: 3.2rem 2.8rem;
+  animation: fadeUp 0.4s ease-out;
+}
+
+.checkmark-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.6rem;
+}
+
+.checkmark-svg {
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+
+.checkmark-circle {
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: circleDraw 0.6s ease-out forwards;
+}
+
+.checkmark-check {
+  stroke: var(--primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkDraw 0.35s ease-out 0.6s forwards;
+}
+
+.success-title {
+  font-size: 1.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.success-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 440px;
+  margin: 0 auto 2rem;
+}
+
+/* Animations */
+@keyframes circleDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
