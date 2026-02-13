@@ -13,7 +13,7 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 * Build a **multi-step form** with protected navigation
 * Implement **robust client-side validation**
@@ -26,7 +26,7 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Frontend:** React, React Router, React Hook Form
 * **State Management:** React Context API
@@ -38,7 +38,7 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 src/
@@ -54,9 +54,9 @@ src/
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
-### 1️⃣ Prerequisites
+### 1️ Prerequisites
 
 * Node.js ≥ 18
 * npm
@@ -64,7 +64,7 @@ src/
 
 ---
 
-### 2️⃣ Clone the Repository
+### 2️ Clone the Repository
 
 ```bash
 git clone <your-github-repo-url>
@@ -73,7 +73,7 @@ cd multi-step-form
 
 ---
 
-### 3️⃣ Install Dependencies (for local dev)
+### 3️ Install Dependencies (for local dev)
 
 ```bash
 npm install
@@ -81,7 +81,7 @@ npm install
 
 ---
 
-### 4️⃣ Run with Docker (Recommended)
+### 4️ Run with Docker (Recommended)
 
 ```bash
 docker-compose up --build
@@ -90,11 +90,11 @@ docker-compose up --build
 * Frontend: [http://localhost:5173](http://localhost:5173)
 * Mock API: [http://localhost:3001/users](http://localhost:3001/users)
 
-> ✅ The frontend communicates with the mock API via Docker network using environment variables.
+>  The frontend communicates with the mock API via Docker network using environment variables.
 
 ---
 
-### 5️⃣ Run Locally (Without Docker – Optional)
+### 5️ Run Locally (Without Docker – Optional)
 
 ```bash
 npm run dev
@@ -104,7 +104,7 @@ Ensure you provide the API URL via environment variables if needed.
 
 ---
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 This project uses environment variables for API configuration.
 
@@ -114,14 +114,14 @@ This project uses environment variables for API configuration.
 VITE_APP_API_URL=http://mock-api:3001
 ```
 
-> ⚠️ `.env` files are intentionally **not committed**.
+>  `.env` files are intentionally **not committed**.
 > Only `.env.example` is included for documentation.
 
 ---
 
-## 🧠 Architectural Decisions
+##  Architectural Decisions
 
-### 🔹 Component-Based Design
+###  Component-Based Design
 
 Each form step and UI element is encapsulated in its own component to ensure:
 
@@ -131,7 +131,7 @@ Each form step and UI element is encapsulated in its own component to ensure:
 
 ---
 
-### 🔹 State Management
+###  State Management
 
 * Global form data is managed using **React Context**
 * Prevents prop-drilling
@@ -140,7 +140,7 @@ Each form step and UI element is encapsulated in its own component to ensure:
 
 ---
 
-### 🔹 Routing Strategy
+###  Routing Strategy
 
 * Client-side routing via **React Router**
 * Nested routes for form steps
