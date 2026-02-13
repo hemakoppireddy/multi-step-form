@@ -1,39 +1,30 @@
-const STORAGE_KEY = "registeredEmails";
+const API_URL = import.meta.env.VITE_APP_API_URL || "http://localhost:3001";
 
-function getStoredEmails() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+// Async email check
+export async function checkEmailAvailability(email) {
+  const res = await fetch(`${API_URL}/users?email=${email}`);
+  const data = await res.json();
+
+  if (data.length > 0) {
+    throw new Error("Email already exists");
+  }
+
+  return true;
 }
 
-function saveEmail(email) {
-  const emails = getStoredEmails();
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify([...emails, email.toLowerCase()])
-  );
-}
-
-export function checkEmailAvailability(email) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const storedEmails = getStoredEmails();
-
-      if (storedEmails.includes(email.toLowerCase())) {
-        reject({ message: "Email already exists" });
-      } else {
-        resolve({ available: true });
-      }
-    }, 1000);
+// Final form submission
+export async function submitForm(data) {
+  const res = await fetch(`${API_URL}/users`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
   });
-}
 
-export function submitForm(data) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      saveEmail(data.email);
-      resolve({
-        success: true,
-        message: "Form submitted successfully",
-      });
-    }, 1200);
-  });
+  if (!res.ok) {
+    throw new Error("Failed to submit form");
+  }
+
+  return await res.json();
 }

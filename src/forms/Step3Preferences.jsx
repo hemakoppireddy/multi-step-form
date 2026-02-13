@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { submitForm } from "../services/api";
+import { useState } from "react";
 
 import { useFormContext } from "../state/FormContext";
 import Button from "../components/Button";
@@ -10,6 +11,9 @@ import ProgressBar from "../components/ProgressBar";
 export default function Step3Preferences() {
   const navigate = useNavigate();
   const { state, updateField, prevStep } = useFormContext();
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const {
     register,
@@ -23,17 +27,22 @@ export default function Step3Preferences() {
     mode: "onBlur",
   });
 
- const onSubmit = async (data) => {
-  updateField("newsletterSubscription", data.newsletterSubscription);
-  updateField("preferredContactMethod", data.preferredContactMethod);
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    setSubmitError("");
 
-  await submitForm({
-    ...state.data,
-    ...data,
-  });
-
-  navigate("/confirmation");
-};
+    try {
+      await submitForm({
+        ...state.data,
+        ...data,
+      });
+      navigate("/confirmation");
+    } catch (err) {
+      setSubmitError(err.message || "Submission failed");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="card">
@@ -93,7 +102,15 @@ export default function Step3Preferences() {
             Back
           </Button>
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </Button>
+
+          {submitError && (
+            <p className="error-text" role="alert">
+              {submitError}
+            </p>
+          )}
         </div>
       </form>
     </div>

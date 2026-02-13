@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "id": "2d01",
+      "firstName": "Koppireddy",
+      "lastName": "Hema Durga",
+      "email": "hema1@gmail.com",
+      "isEmployed": "Yes",
+      "companyName": "aditya",
+      "jobTitle": "Full Stack Developer ",
+      "newsletterSubscription": true,
+      "preferredContactMethod": "Email"
+    }
+  ]
+}
