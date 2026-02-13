@@ -16,6 +16,7 @@ export default function Step1Personal() {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -93,7 +94,6 @@ export default function Step1Personal() {
             },
             validate: async (value) => {
               setEmailStatus("loading");
-
               try {
                 await checkEmailAvailability(value);
                 setEmailStatus("success");
@@ -104,6 +104,10 @@ export default function Step1Personal() {
               }
             },
           })}
+          // onChange={() => setEmailStatus("idle")}
+          onBlur={async () => {
+            await trigger("email");
+          }}
           error={errors.email?.message}
         />
 

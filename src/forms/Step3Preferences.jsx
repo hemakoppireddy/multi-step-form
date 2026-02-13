@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import { submitForm } from "../services/api";
+
 import { useFormContext } from "../state/FormContext";
 import Button from "../components/Button";
 import ProgressBar from "../components/ProgressBar";
@@ -21,13 +23,17 @@ export default function Step3Preferences() {
     mode: "onBlur",
   });
 
-  const onSubmit = (data) => {
-    updateField("newsletterSubscription", data.newsletterSubscription);
-    updateField("preferredContactMethod", data.preferredContactMethod);
+ const onSubmit = async (data) => {
+  updateField("newsletterSubscription", data.newsletterSubscription);
+  updateField("preferredContactMethod", data.preferredContactMethod);
 
-    // 🔜 In next step we’ll replace this with API submission
-    navigate("/confirmation");
-  };
+  await submitForm({
+    ...state.data,
+    ...data,
+  });
+
+  navigate("/confirmation");
+};
 
   return (
     <div className="card">
