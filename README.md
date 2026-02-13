@@ -13,23 +13,6 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## Screenshots
-
-### Desktop View
-
-![Desktop – Step 1](./screenshots/desktop-step1.png)
-![Desktop – Step 2](./screenshots/desktop-step2.png)
-![Desktop – Confirmation](./screenshots/desktop-confirmation.png)
-
-### Mobile View
-
-![Mobile – Step 1](./screenshots/mobile-step1.png)
-![Mobile – Step 2](./screenshots/mobile-step2.png)
-
-> 📌 *Screenshots showcase validation errors, progress indicator, and responsive layout.*
-
----
-
 ## 🎯 Project Objectives
 
 * Build a **multi-step form** with protected navigation
