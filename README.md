@@ -1,11 +1,11 @@
-# 🧾 Dynamic Multi-Step Form Application
+#  Dynamic Multi-Step Form Application
 
 A **responsive, accessible, and production-ready multi-step form** built using **React** with **client-side routing**, **centralized state management**, **robust validation (sync + async)**, and a **Dockerized mock API**.
 This project demonstrates real-world frontend engineering practices used in user onboarding and data-capture workflows.
 
 ---
 
-## 🔗 Live Demo
+## Live Demo
 
 🎥 **Video Walkthrough:**
 👉 *Add your Loom / YouTube link here*
@@ -13,7 +13,7 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Desktop View
 
