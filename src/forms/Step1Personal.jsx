@@ -108,11 +108,15 @@ export default function Step1Personal() {
         />
 
         {emailStatus === "loading" && (
-          <p className="async-info">Checking email availability…</p>
+          <p className="async-info" aria-live="polite">
+            Checking email availability…
+          </p>
         )}
 
         {emailStatus === "success" && (
-          <p className="async-success">Email is available ✓</p>
+          <p className="async-success" aria-live="polite">
+            Email is available
+          </p>
         )}
 
         <div className="form-actions">

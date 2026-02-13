@@ -71,3 +71,15 @@ select:focus {
   height: 16px;
   accent-color: var(--primary);
 }
+
+.async-info {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.async-success {
+  font-size: 0.8rem;
+  color: var(--success);
+  margin-top: 0.25rem;
+}
