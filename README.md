@@ -5,11 +5,9 @@ This project demonstrates real-world frontend engineering practices used in user
 
 ---
 
-## Live Demo
+## Demo Video
 
-🎥 **Video Walkthrough:**
-👉 *Add your Loom / YouTube link here*
-(Shows full form flow, validation, conditional fields, keyboard navigation, responsiveness)
+[Demo Link](https://drive.google.com/file/d/1nVsaeTk4REWfYWlOF5-PyRphIsOR7WKM/view?usp=sharing)
 
 ---
 
